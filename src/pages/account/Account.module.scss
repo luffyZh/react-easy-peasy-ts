@@ -1,0 +1,35 @@
+@import '~src/assets/const';
+
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: $white-color;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.query_bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 20px;
+}
+
+.delete {
+  color: $error-color;
+}
+
+.form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+}
+
+span.divider {
+  color: $border-color;
+}
