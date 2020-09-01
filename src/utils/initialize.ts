@@ -1,10 +1,18 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-28 15:07:15
+ * @LastEditTime: 2020-09-01 17:55:47
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /react-easy-peasy-ts/src/utils/initialize.ts
+ */
 import { message } from 'antd';
-import { nanoid } from 'nanoid';
-import Cookie from 'js-cookie';
-import * as Sentry from '@sentry/browser';
+// import { nanoid } from 'nanoid';
+// import Cookie from 'js-cookie';
+// import * as Sentry from '@sentry/browser';
 import request from './request';
 import { authCookieUser } from './methods';
-import FetchError from './FetchError';
+// import FetchError from './FetchError';
 
 export default function() {
   // 每次进入系统之前清除这个
@@ -34,17 +42,17 @@ export default function() {
 
   request.interceptors.catch = function(error) {
     console.log('Error: ', error);
-    const err = new FetchError(error.message, {
-      _traceId: nanoid(), // create your application traceId
-      token: Cookie.get('MARKET_LANCHDATA_PLATFORM_TOKEN') || '',
-      url: error.url,
-    });
+    // const err = new FetchError(error.message, {
+    //   _traceId: nanoid(), // create your application traceId
+    //   token: Cookie.get('MARKET_LANCHDATA_PLATFORM_TOKEN') || '',
+    //   url: error.url,
+    // });
     /* config the fetch error is warning */
-    Sentry.withScope(function(scope) {
-      // @ts-ignore，要不然会 TS 报错
-      scope.setLevel('warning');
-      Sentry.captureException(err);
-    });
+    // Sentry.withScope(function(scope) {
+    //   // @ts-ignore，要不然会 TS 报错
+    //   scope.setLevel('warning');
+    //   Sentry.captureException(err);
+    // });
     /**
      * 正常的 error 应该是 status 和 statusText
      * 内部系统存在很多自定义的东西，比如 statusCode 和 message,

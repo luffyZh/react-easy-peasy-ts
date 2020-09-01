@@ -31,12 +31,12 @@ export function checkIsPhone(value: string) {
 /**
  * 生成加密的密码
  */
-export async function rsaEncrypt(password: string): Promise<string> {
-  const { JSEncrypt } = await import('jsencrypt');
-  const crypt = new JSEncrypt();
-  crypt.setPublicKey(window.config.publicKey);
-  return crypt.encrypt(password);
-}
+// export async function rsaEncrypt(password: string): Promise<string> {
+//   const { JSEncrypt } = await import('jsencrypt');
+//   const crypt = new JSEncrypt();
+//   crypt.setPublicKey(window.config.publicKey);
+//   return crypt.encrypt(password);
+// }
 
 export function authCookieUser() {
   const auth = !!(
